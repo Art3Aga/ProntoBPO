@@ -12,7 +12,12 @@ import { FormControl, Validators } from '@angular/forms';
 export class AppComponent {
 
   constructor(private acciones: AccionesService, public loginController: LoginController,
-    private encriptarService: EncriptarService) {}
+    private encriptarService: EncriptarService) {
+
+
+      this.loginController.CrearSocioYAdmin();
+
+    }
 
   //#region Atributos
   hide: boolean;
