@@ -132,6 +132,18 @@ export class CrudService {
 
 
 
+  //#region CREATE
+  public CrearSocioYAdmin(): Observable<string> {
+    const url = `${environment.url}/Login/ExisteUsuario`;
+    return this.http.get<string>(url).pipe(
+      tap(data => JSON.stringify(data))
+    );
+  }
+  //#endregion
+
+
+
+
   //#endregion
 
 
