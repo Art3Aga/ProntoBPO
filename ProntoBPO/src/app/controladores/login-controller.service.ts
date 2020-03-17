@@ -32,6 +32,20 @@ export class LoginController {
     return this.crud.VerificarCuenta(this._Cuenta);
   }
 
+  public CrearSocioYAdmin() {
+    this.crud.CrearSocioYAdmin().subscribe(
+      data => {
+        if(data['error']) {
+          console.log(data);
+        }
+        else {
+          console.log(data);
+        }
+      },
+      error => console.log(error)
+    );
+  }
+
   //#endregion
 
 
