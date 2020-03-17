@@ -1,0 +1,68 @@
+<div class="item" *ngIf="!isItem; else cuadro" >
+  <div class="foto">
+    <img src="http://localhost:8069/web/image?model=hr.employee&id={{empleado.id_employee}}&field=image_128&unique=12032020154253" alt="">
+  </div>
+  <div class="estrellas" id="centralizar">
+    <div class="estrellitas">
+      <mat-icon class="star" *ngFor="let star of listaEstrellas">star</mat-icon>
+    </div>
+  </div>
+  <div class="nombre-empleado" id="centralizar">
+    <h5>{{empleado.name}}</h5>
+  </div>
+  <div class="span-puesto" id="centralizar">
+    <span>Puesto Solicitado: </span>
+  </div>
+  <div class="puesto" id="centralizar">
+    <p>{{empleado.job_name}}</p>
+  </div>
+  <div class="span-calificacion" id="centralizar">
+    <span>Departamento: </span>
+  </div>
+  <div class="calificacion" id="centralizar">
+    <p>{{empleado.department}}</p>
+  </div>
+  <div class="span-titulo" id="centralizar">
+    <span>Titulo: </span>
+  </div>
+  <div class="titulo" id="centralizar">
+    <p>{{empleado.job_title}}</p>
+  </div>
+</div>
+
+
+<ng-template #cuadro>
+
+  <div class="recuadro">
+    <div class="name-recuadro" id="centralizar">
+      <b>{{empleado.name}}</b>
+    </div>
+    <div class="estrellas-recuadro" id="centralizar">
+      <div class="estrellitas">
+        <mat-icon class="star" *ngFor="let star of listaEstrellas">star</mat-icon>
+      </div>
+    </div>
+    <div class="foto-recuadro" id="centralizar">
+      <img src="http://localhost:8069/web/image?model=hr.employee&id={{empleado.id_employee}}&field=image_128&unique=12032020154253">
+    </div>
+    <div class="span-puesto-recuadro" id="centralizar">
+      <span>Puesto Solicitado: </span>
+    </div>
+    <div class="puesto-recuadro" id="centralizar">
+      <p>{{empleado.job_name}}</p>
+    </div>
+    <div class="span-calificacion-recuadro" id="centralizar">
+      <span>Departamento: </span>
+    </div>
+    <div class="calificacion-recuadro" id="centralizar">
+      <p>{{empleado.department}}</p>
+    </div>
+    <div class="span-titulo-recuadro" id="centralizar">
+      <span>Titulo: </span>
+    </div>
+    <div class="titulo-recuadro" id="centralizar">
+      <p>{{empleado.job_title}}</p>
+    </div>
+  </div>
+
+</ng-template>

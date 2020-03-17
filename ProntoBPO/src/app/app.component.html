@@ -1,0 +1,51 @@
+<div class="menu" *ngIf="IsLogueado()">
+  <app-sidebar></app-sidebar>
+</div>
+<div class="container" *ngIf="!IsLogueado()">
+  <div class="logo">
+    <img src="../assets/cropped-Pronto-bpo-2.png" alt="">
+  </div>
+  <div class="login">
+    <div class="img-usuario">
+      <img src="../assets/cropped-Pronto-bpo-2.png" alt="">
+    </div>
+    <div class="titulo">
+      <p>Inicio de Sesion</p>
+    </div>
+      <!--<form [formGroup]="formLogin">-->
+        <div class="input-usuario">
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input [formControl]="email" class="inputLogin" required type="text"
+             matInput placeholder="Ingrese Email">
+          <mat-error *ngIf="email.invalid">{{this.email.hasError('required') ? 'El Email es Requerido' : ''}}</mat-error>
+            <!--<div class="error" *ngIf="formLogin.get('usuario').errors && formLogin.get('usuario').dirty">
+              <mat-error *ngIf="formLogin.get('usuario').hasError('required')">La Clave es un Campo Requerido</mat-error>
+            </div>-->
+            <mat-icon matSuffix>email</mat-icon>
+          </mat-form-field>
+        </div>
+        <div class="input-clave">
+          <mat-form-field appearance="outline">
+            <mat-label>Clave</mat-label>
+            <input [formControl]="clave" required class="inputLogin"
+             matInput placeholder="Ingrese Clave" [type]="!hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{!hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-error *ngIf="clave.invalid">{{this.clave.hasError('required') ? 'La Clave es Requerida' : ''}}</mat-error>
+            <!--<div class="error" *ngIf="formLogin.get('clave').errors && formLogin.get('clave').dirty">
+              <mat-error *ngIf="formLogin.get('clave').hasError('required')">La Clave es un Campo Requerido</mat-error>
+            </div>-->
+          </mat-form-field>
+        </div>
+      <!--</form>-->
+    <div class="boton">
+      <button mat-raised-button class="botones" (click)="Login()">Iniciar Sesion</button>
+    </div>
+    <div class="loading" *ngIf="cargando" >
+      <mat-spinner color="warn"></mat-spinner>
+    </div>
+  </div>
+</div>
+

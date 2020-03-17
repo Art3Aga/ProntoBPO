@@ -1,0 +1,28 @@
+
+
+<div class="item-departamento" *ngIf="!isItem; else recuadro" >
+  <div class="titulo-depart-item">
+    <h5>{{puesto.name}} - Vistas: {{puesto.address_id-1}}</h5>
+  </div>
+  <div class="lista-profesionales-item">
+    <app-item-profesional *ngFor="let profesional of listaProfesionales"
+    [puesto]="profesional.work_location" [empleado]="profesional" [isItem]="isItem"
+    (click)="acciones.OpenModalPerfilProfesional(profesional)"></app-item-profesional>
+  </div>
+  <h1 *ngIf="profesionalController.getIsError">{{profesionalController.getMensajeError}}</h1>
+</div>
+
+<ng-template #recuadro>
+  <div class="recuadro-departamento">
+    <div class="titulo-depart-recuadro">
+      <h5>{{puesto.name}} - Vistas: {{puesto.address_id-1}}</h5>
+    </div>
+    <div class="lista-profesionales-recuadro">
+      <app-item-profesional *ngFor="let profesional of listaProfesionales"
+      [puesto]="profesional.work_location" [empleado]="profesional" [isItem]="isItem"
+      (click)="acciones.OpenModalPerfilProfesional(profesional)"></app-item-profesional>
+    </div>
+    <h1 *ngIf="profesionalController.getIsError">{{profesionalController.getMensajeError}}</h1>
+  </div>
+</ng-template>
+

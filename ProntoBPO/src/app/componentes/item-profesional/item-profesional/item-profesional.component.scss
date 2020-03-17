@@ -1,0 +1,219 @@
+
+
+//CSS GRID
+
+.item {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 10px;
+}
+.recuadro {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(5, auto);
+  grid-gap: 5px;
+}
+.estrellas {
+  grid-column: 4 / -1;
+  grid-row: 1 / 2;
+}
+.foto {
+  grid-column: 1 / 2;
+  grid-row: 1 / -1;
+}
+.nombre-empleado {
+  grid-column: 2 / 4;
+  grid-row: 1 / 2;
+}
+.span-puesto {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+.puesto {
+  grid-column: 2 / 3;
+  grid-row: 3 / -1;
+}
+.span-calificacion {
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+}
+.calificacion {
+  grid-column: 3 / 4;
+  grid-row: 3 / -1;
+}
+.span-titulo {
+  grid-column: 4 / -1;
+  grid-row: 2 / 3;
+}
+.titulo {
+  grid-column: 4 / -1;
+  grid-row: 3 / -1;
+}
+
+//RECUADRO
+.name-recuadro {
+  grid-column: 1 / 3;
+  grid-row: 1 / 2;
+}
+.estrellas-recuadro {
+  grid-column: 3 / -1;
+  grid-row: 1 / 2;
+}
+.foto-recuadro {
+  grid-column: 1 / -1;
+  grid-row: 2 / 4;
+}
+.span-puesto-recuadro {
+  grid-column: 1 / 2;
+  grid-row: 4 / 5;
+}
+.puesto-recuadro {
+  grid-column: 1 / 2;
+  grid-row: 5 / -1;
+}
+.span-calificacion-recuadro {
+  grid-column: 2 / 3;
+  grid-row: 4 / 5;
+}
+.calificacion-recuadro {
+  grid-column: 2 / 3;
+  grid-row: 5 / -1;
+}
+.span-titulo-recuadro {
+  grid-column: 3 / -1;
+  grid-row: 4 / 5;
+}
+.titulo-recuadro {
+  grid-column: 3 / -1;
+  grid-row: 5 / -1;
+}
+
+
+//ESTILOS
+.foto-recuadro img {
+  width: 40%;
+  height: 86%;
+  border-radius: 20px;
+}
+.foto img {
+  width: 55%;
+  height: 96%;
+  border-radius: 20px;
+  //border-top-left-radius: 50px;
+  //border-bottom-left-radius: 50px;
+}
+.estrellas img {
+  width: 45%;
+  height: 70%;
+}
+.nombre-empleado {
+  padding-top: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.foto {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+//.estrellas, .puesto, .span-puesto, .span-calificacion, .calificacion, .span-titulo, .titulo
+#centralizar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.item {
+  position: relative;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 900px;
+  height: 110px;
+  background-color: white;
+  -webkit-box-shadow: 0px 2px 17px -1px rgba(0,0,0,0.48);
+  -moz-box-shadow: 0px 2px 17px -1px rgba(0,0,0,0.48);
+  box-shadow: 0px 2px 17px -1px rgba(0,0,0,0.48);
+  //border-top-right-radius: 50px;
+  //border-bottom-right-radius: 50px;
+  border-radius: 20px;
+  transition: 0.6s;
+  animation-name: bounce;
+  animation-duration: 0.6s;
+  animation-timing-function: ease-out;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+  &:hover {
+    cursor: pointer;
+    background-color: rgba(0,0,0,0.48) !important;
+    color: white;
+    p {
+      color: rgb(212, 212, 212);
+    }
+  }
+}
+span {
+  font-size: 13.5px;
+}
+p {
+  color: gray;
+  font-size: 13px;
+}
+.estrellitas {
+  display: block;
+}
+.star {
+  color: yellow !important;
+}
+
+.recuadro {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  background-color: white !important;
+  color: rgba(0,0,0,0.48);
+  -webkit-box-shadow: 0px 2px 17px -1px rgba(0,0,0,0.48);
+  -moz-box-shadow: 0px 2px 17px -1px rgba(0,0,0,0.48);
+  box-shadow: 0px 2px 17px -1px rgba(0,0,0,0.48);
+  border-radius: 10px;
+  font-size: 16px;
+  animation-name: bounce;
+  animation-duration: 0.6s;
+  animation-timing-function: ease-out;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+  &:hover {
+    cursor: pointer;
+    background-color: rgba(0,0,0,0.48) !important;
+    color: white;
+    transition: 0.6s;
+    p {
+      color: rgb(212, 212, 212);
+    }
+  }
+}
+
+
+//KEYFRAMES
+
+@keyframes bounce {
+
+  //0% { opacity: 0; }
+  //100% { opacity: 1; }
+
+  from { top: 200px; opacity: 0; }
+  to { top: 0px; opacity: 1; }
+
+}
+
+@keyframes arrastrar {
+
+  //0% { opacity: 0; }
+  //100% { opacity: 1; }
+
+  from { left: -200px; opacity: 0; }
+  to { left: 0px; opacity: 1; }
+
+}
