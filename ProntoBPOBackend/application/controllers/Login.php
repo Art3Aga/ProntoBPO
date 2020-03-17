@@ -15,6 +15,44 @@ class Login extends REST_Controller {
 		$this->load->library('session');
 	}
 
+	public function ExisteUsuario_get() {
+
+		$query = $this->db->query("SELECT * FROM res_users WHERE login = 'Socio1'");
+
+		$response = $query->row();
+
+		if($response <= 0) {
+
+			$contraSocio = md5('holamundo');
+			$contraAdmin = md5('prontobpo');
+			$token = $this->GenerarToken();
+			$token2 = $this->GenerarToken();
+
+			$consulta = $this->db->query("INSERT INTO res_users (active, login, password,
+				company_id, partner_id, create_date, signature, share, create_uid, write_uid,
+			 write_date, alias_id, notification_type, odoobot_state)
+			 VALUES (TRUE, 'Socio1', '{$contraSocio}', 1, 1, NOW(), '{$token}', FALSE, 1, 1, NOW(), 1, 'email', 'not_initialized');");
+
+			$consulta2 = $this->db->query("INSERT INTO res_users (active, login, password,
+				company_id, partner_id, create_date, signature, share, create_uid, write_uid,
+			 write_date, alias_id, notification_type, odoobot_state)
+			 VALUES (TRUE, 'ProntoBPO', '{$contraAdmin}', 1, 1, NOW(), '{$token2}', FALSE, 1, 1, NOW(), 2, 'email', 'not_initialized');");
+
+			$respuesta = array(
+				'error' => FALSE,
+				'mensaje' => 'OK');
+			$this->response($respuesta);
+
+		}
+		else {
+			$respuesta = array(
+				'error' => TRUE,
+				'mensaje' => 'YA EXISTE');
+			$this->response($respuesta);
+		}
+
+	}
+
 	public function VerificarCuentaSocios_post() {
 
 		$data = $this->post();
